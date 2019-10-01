@@ -1,0 +1,35 @@
+{% extends "_layouts/providers.njk" %}
+
+{% block content %}
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-4">
+            <div class="p-5">
+                <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Formulário de Cadastro</h1>
+                </div>
+                <form action="/app/providers/register" method="post" class="user">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control form-control-user" placeholder="Nome Completo" autofocus required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="matricula" class="form-control form-control-user" placeholder="Matrícula" required>
+                    </div>
+
+                {% if id %}
+                    <div class="input-group mb-3">
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Status</option>
+                            <option value="1">Ativo</option>
+                            <option value="0">Inativo</option>
+                        </select>
+                    </div>
+                {% endif %}
+                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                      <span>CADASTRAR</span>
+                    </button>
+                <p class="text-danger text-center">{{msg}}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

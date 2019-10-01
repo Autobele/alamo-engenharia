@@ -1,0 +1,32 @@
+{% extends "_layouts/obras.njk" %}
+
+{% block content %}
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-4">
+            <div class="p-5">
+                <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Cadastro de Obras</h1>
+                </div>
+                <form action="/app/obras/register" method="post" class="user">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" class="form-control form-control-user" placeholder="Solar Residence II" autofocus required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco" class="form-control form-control-user" placeholder="Rua das Palmeiras, nº 4521" autofocus required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" id="descricao" name="descricao" class="form-control form-control-user" placeholder="Instalação de Painel Solar" autofocus required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                      <span>CADASTRAR</span>
+                    </button>
+                    <p></p>
+                <p class="text-danger text-center">{{msg}}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

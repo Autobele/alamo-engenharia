@@ -1,0 +1,40 @@
+{% extends "_layouts/default.njk" %}
+
+{% block body %}
+  <div class="provider-wrapper">
+     <div class="header-app">
+      <h2>Funcionário</h2>
+    
+      {% include "_partial/user-config.njk" %}  
+    </div>
+    
+    <div class="menu">
+      <div class="menu-item">
+        <a href="/app/providers">Voltar</a>
+      </div>
+      <div class="menu-item">
+        <a href="/app/dashboard">Dashboard</a>
+      </div>
+    </div>
+
+        
+    <p>{{funcionario.name}}</p>
+
+  <form action="/app/providers/register/{% if id %}{{id}}{% endif %}/edit" method="post">
+    
+    <label for="name">Nome: 
+      <input id="name" type="text" name="name" placeholder="Luiz Gonzaga" value="{% if id %}{{name}}{% endif %}" required>
+    </label>
+    <br>
+    <label for="matricula">Matricula:
+      <input id="matricula" type="text" name="matricula" placeholder="00001" value="{% if id %}{{matricula}}{% endif %}" required>
+    </label>
+
+    
+
+    <button type="submit">Atualizar</button>
+  </form>
+
+  <p>{{alertMatriculaExiste}}</p>
+  </div>
+{% endblock %}

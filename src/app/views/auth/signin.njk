@@ -1,0 +1,54 @@
+{% extends "_layouts/auth.njk" %}
+{# 
+{% block body %}
+
+  <form action="/signin" method="post">
+    {{user}}
+    <input type="text" name="user" placeholder="Usuário, ex: maria">
+    <input type="password" name="password_hash" placeholder="Senha">
+
+    <button type="submit">Login</button>
+    
+  </form>
+{% endblock %} #}
+
+
+{% extends "_layouts/auth.njk" %}
+
+{% block body %}
+  <!-- Outer Row -->
+  <div class="row justify-content-center align-items-center" style="height: 100vh; width: 100%">
+
+    <div class="col-xl-10 col-lg-12 col-md-9">
+
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            {% include "_partial/logo-white.njk"%}
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Login</h1>
+                </div>
+                <form class="user" action="/signin" method="post">
+                  <div class="form-group">
+                    <input type="text" name="user" class="form-control form-control-user" placeholder="Login" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password_hash" class="form-control form-control-user"placeholder="Senha">
+                  </div>
+                  <button href="submit" class="btn btn-primary btn-user btn-block">
+                      ENTRAR
+                    </button>
+                </form>
+                <hr>
+                <p class="text-danger text-center">{{msg}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

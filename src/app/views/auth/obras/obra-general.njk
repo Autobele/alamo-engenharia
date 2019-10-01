@@ -1,0 +1,48 @@
+{% extends "_layouts/obras.njk" %}
+
+{% block content %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Relação de Obras</h6>
+        </div>
+        <div class="card-body">
+
+            {% if obras.length > 0 %}
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">Nome</th>
+                                <th class="text-center">Descrição</th>
+                                <th class="text-center">Endereço</th>
+                                <th class="text-center">Status</th>
+                                {# <th style="width: 150px;" class="text-center">Ação</th> #}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for obra in obras %}
+                                <tr>
+                                    <td class="align-middle text-center">{{obra.id}}</td>  
+                                    <td class="align-middle text-center">{{obra.nome}}</td>
+                                    <td class="align-middle text-center">{{obra.descricao}}</td>
+                                    <td class="align-middle text-center">{{obra.endereco}}</td>
+                                    <td class="align-middle text-center">
+                                         {% if obra.concluida == 0 %}
+                                            <span class="p-3 mb-2 text-warning font-weight-bold">Em andamento</span>
+                                        {% else %}
+                                            <span class="p-3 mb-2 text-success font-weight-bold">Concluída</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <h3>{{msg}}</h3>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}
